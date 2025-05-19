@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react";
 
+export default function useCurrencyInfo(fromCountry, toCountry) {
+    const [data, setData] = useState({});
 
-function useCurrencyInfo(fromCuntry, toCuntry) {
-    const [data, setData] = useState({})
     useEffect(() => {
-        fetch(`https://api.frankfurter.dev/v1/latest?base=${fromCuntry}&symbols=${toCuntry}`)
-        .then((res)=>res.json())
-        .then((res)=> setData(res.base))
-        console.log(data)
-    },[fromCuntry, toCuntry])
-    console.log(data)
-    return data
+        fetch(`https://api.frankfurter.app/latest?base=${fromCountry}&symbols=${toCountry}`)
+            .then((res) => {
+                if (!res.ok) {
+                    throw new Error('Failed to fetch');
+                }
+                return res.json();
+            })
+            .then((data) => setData(data))
+            .catch((err) => {
+                console.error("Fetch error:", err.message);
+                setData({ rates: { [toCountry]: 0 } }); // Safe fallback
+            });
+    }, [fromCountry, toCountry]);
+
+    return data;
 }
 
-export default useCurrencyInfo
