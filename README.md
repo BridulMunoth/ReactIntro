@@ -35,11 +35,15 @@ React Router is a powerful library for handling navigation in React applications
 
 ### 🏗 3. Structuring Navigation
 - Create a navigation bar using `<NavLink>` for active styling:
-  ```js
-<NavLink to="/" className={({isActive}) =>`hover:underline ${isActive ? "text-orange-700" : "text-gray-700"}`}>
-    Home
+  ```jsx
+<NavLink
+  to="/"
+  className={({ isActive }) =>
+    `hover:underline ${isActive ? "text-orange-700" : "text-gray-700"}`
+  }
+>
+  Home
 </NavLink>
-  ```
 
 ### 🔄 4. Dynamic Routing & URL Parameters
 - Define dynamic routes:
@@ -84,4 +88,3 @@ This pattern is especially useful for layouts like dashboards or websites where 
 - **GitHub Repository:** [Hitesh Choudhary's Code](https://github.com/hiteshchoudhary/)  
 
 This document serves as a reference for understanding and implementing **React Router** efficiently. Happy coding! 🚀🔥
-```
