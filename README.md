@@ -14,15 +14,15 @@ This document provides a detailed summary of the **Theme Changer Project** from 
 - Used TailwindCSS to style the theme dynamically.
 - Faced an issue because **TailwindCSS v4 (installed via Vite) does not include a config file**.
 - Found a solution on **StackOverflow** to implement dark mode without a config file:
-  ```App.css
+  ```css
   @custom-variant dark (&:where(.dark, .dark *));
   ```
+- Added this to `App.css` to make dark mode work properly.
 
 ### ✅ 3. Summary of Best Practices
 - ✅ Used **Context API** for global state management.
 - ✅ Ensured **TailwindCSS dark mode** works correctly with the latest version.
 - ✅ Implemented a **toggle button** for easy theme switching.
-
 
 ## 🎓 Credits & Source
 - **Instructor:** Hitesh Choudhary  
